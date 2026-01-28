@@ -1,0 +1,18 @@
+USE TPCH;
+GO
+
+GRANT SELECT ON lineitem TO user1;
+GRANT SELECT ON lineitem TO user2;
+GRANT SELECT ON lineitem TO user3;
+GO
+
+
+GRANT SHOWPLAN TO user1;
+GRANT SHOWPLAN TO user2;
+GRANT SHOWPLAN TO user3;
+GO
+
+EXECUTE AS USER = 'user1';
+SELECT COUNT(*) AS rows_seen_by_user1 FROM lineitem;
+REVERT;
+GO
