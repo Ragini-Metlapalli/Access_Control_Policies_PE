@@ -1,0 +1,6 @@
+{
+  "policy_id": "P4",
+  "table": "lineitem",
+  "predicate_name": "dbo.p4_open_not_returned",
+  "columns": ["l_linestatus", "l_returnflag"]
+}

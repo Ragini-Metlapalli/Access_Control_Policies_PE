@@ -1,0 +1,6 @@
+{
+  "policy_id": "P5",
+  "table": "lineitem",
+  "predicate_name": "dbo.p5_price_range",
+  "columns": ["l_extendedprice", "l_discount"]
+}

@@ -1,0 +1,6 @@
+{
+  "policy_id": "P8",
+  "table": "lineitem",
+  "predicate_name": "dbo.p8_shipmode",
+  "columns": ["l_shipmode"]
+}

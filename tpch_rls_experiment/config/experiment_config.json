@@ -1,0 +1,28 @@
+{
+  "runs_per_query": 5,
+
+  "modes": ["WITH_RLS", "NO_RLS"],
+
+  "rls": {
+    "enable": true,
+    "apply_one_predicate_per_table": true,
+    "allow_cartesian_product": false,
+    "max_cartesian_combinations": 50
+  },
+
+  "execution": {
+    "statistics_io": true,
+    "statistics_time": true,
+    "clear_cache_between_runs": false,
+    "delay_between_runs_seconds": 2
+  },
+
+  "users_to_test" : ["user1"], 
+
+  "output": {
+    "results_file": "results/results.csv",
+    "append": true,
+    "include_timestamp": true
+  }
+
+}

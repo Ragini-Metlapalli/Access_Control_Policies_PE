@@ -1,0 +1,31 @@
+{
+  "server": "localhost",
+  "port": 1433,
+  "database": "TPCH",
+
+  "authentication": {
+    "type": "sql_login",
+    "admin_user": "sa",
+    "admin_password": "Inigar@04"
+  },
+
+  "users": {
+    "user1": {
+      "login": "user1",
+      "password": "User1@123"
+    },
+    "user2": {
+      "login": "user2",
+      "password": "User2@123"
+    },
+    "user3": {
+      "login": "user3",
+      "password": "User3@123"
+    }
+  },
+
+  "machine": {
+    "label": "Mr",
+    "description": "Ragini laptop, 12GB RAM, 12 cores"
+  }
+}

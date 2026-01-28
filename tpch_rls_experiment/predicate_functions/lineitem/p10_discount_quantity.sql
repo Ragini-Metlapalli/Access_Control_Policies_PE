@@ -1,0 +1,17 @@
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p10_discount_quantity;
+GO
+
+CREATE FUNCTION dbo.p10_discount_quantity(
+    @disc DECIMAL(4,2),
+    @qty INT
+)
+RETURNS TABLE WITH SCHEMABINDING
+AS
+RETURN
+SELECT 1 AS allowed
+WHERE USER_NAME() = 'user3'
+   OR (@disc BETWEEN 0.02 AND 0.06 OR @qty BETWEEN 10 AND 30);
+GO

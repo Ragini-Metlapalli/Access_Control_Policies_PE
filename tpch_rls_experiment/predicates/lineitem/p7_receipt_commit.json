@@ -1,0 +1,6 @@
+{
+  "policy_id": "P7",
+  "table": "lineitem",
+  "predicate_name": "dbo.p7_receipt_commit",
+  "columns": ["l_receiptdate", "l_commitdate"]
+}

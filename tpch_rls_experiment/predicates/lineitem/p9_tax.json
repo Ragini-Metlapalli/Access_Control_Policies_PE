@@ -1,0 +1,6 @@
+{
+  "policy_id": "P9",
+  "table": "lineitem",
+  "predicate_name": "dbo.p9_tax",
+  "columns": ["l_tax"]
+}

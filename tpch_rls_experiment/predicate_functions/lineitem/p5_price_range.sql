@@ -1,0 +1,17 @@
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p5_price_range;
+GO
+
+CREATE FUNCTION dbo.p5_price_range(
+    @price DECIMAL(15,2),
+    @disc DECIMAL(4,2)
+)
+RETURNS TABLE WITH SCHEMABINDING
+AS
+RETURN
+SELECT 1 AS allowed
+WHERE USER_NAME() = 'user3'
+   OR (@price * (1 - @disc)) BETWEEN 20000 AND 200000;
+GO

@@ -1,0 +1,7 @@
+{
+  "policy_id": "P1",
+  "table": "lineitem",
+  "predicate_name": "dbo.p1_last_5y",
+  "columns": ["l_shipdate"]
+}
+                    

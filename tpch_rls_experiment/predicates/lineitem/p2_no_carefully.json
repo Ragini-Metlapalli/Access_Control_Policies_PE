@@ -1,0 +1,6 @@
+{
+  "policy_id": "P2",
+  "table": "lineitem",
+  "predicate_name": "dbo.p2_no_carefully",
+  "columns": ["l_comment"]
+}

@@ -1,0 +1,14 @@
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p8_shipmode;
+GO
+
+CREATE FUNCTION dbo.p8_shipmode(@mode VARCHAR(20))
+RETURNS TABLE WITH SCHEMABINDING
+AS
+RETURN
+SELECT 1 AS allowed
+WHERE USER_NAME() = 'user3'
+   OR (@mode LIKE '%AIR%' OR @mode LIKE '%RAIL%');
+GO

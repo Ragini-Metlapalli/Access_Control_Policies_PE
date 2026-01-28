@@ -1,0 +1,6 @@
+{
+  "policy_id": "P3",
+  "table": "lineitem",
+  "predicate_name": "dbo.p3_return_discount",
+  "columns": ["l_returnflag", "l_discount"]
+}

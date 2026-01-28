@@ -1,0 +1,6 @@
+{
+  "policy_id": "P6",
+  "table": "lineitem",
+  "predicate_name": "dbo.p6_ship_commit",
+  "columns": ["l_shipdate", "l_commitdate"]
+}

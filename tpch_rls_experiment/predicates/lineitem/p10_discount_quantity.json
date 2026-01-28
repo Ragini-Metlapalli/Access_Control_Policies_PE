@@ -1,0 +1,6 @@
+{
+  "policy_id": "P10",
+  "table": "lineitem",
+  "predicate_name": "dbo.p10_discount_quantity",
+  "columns": ["l_discount", "l_quantity"]
+}
