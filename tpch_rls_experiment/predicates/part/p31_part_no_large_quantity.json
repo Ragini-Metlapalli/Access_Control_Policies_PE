@@ -1,0 +1,7 @@
+{
+  "policy_id": "P31",
+  "table": "part",
+  "predicate_name": "dbo.p31_part_no_large_quantity",
+  "columns": ["p_partkey"]
+}
+

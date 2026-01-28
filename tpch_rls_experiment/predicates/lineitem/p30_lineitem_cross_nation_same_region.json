@@ -1,0 +1,7 @@
+{
+  "policy_id": "P30",
+  "table": "lineitem",
+  "predicate_name": "dbo.p30_lineitem_cross_nation_same_region",
+  "columns": ["l_suppkey", "l_orderkey"]
+}
+

@@ -1,0 +1,7 @@
+{
+  "policy_id": "P26",
+  "table": "part",
+  "predicate_name": "dbo.p26_part_many_suppliers",
+  "columns": ["p_partkey"]
+}
+

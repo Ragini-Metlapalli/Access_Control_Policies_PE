@@ -1,0 +1,7 @@
+{
+  "policy_id": "P25",
+  "table": "lineitem",
+  "predicate_name": "dbo.p25_lineitem_above_brand_avg_price",
+  "columns": ["l_partkey"]
+}
+

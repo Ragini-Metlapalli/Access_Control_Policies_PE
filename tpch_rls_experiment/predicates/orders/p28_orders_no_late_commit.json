@@ -1,0 +1,7 @@
+{
+  "policy_id": "P28",
+  "table": "orders",
+  "predicate_name": "dbo.p28_orders_no_late_commit",
+  "columns": ["o_orderkey"]
+}
+

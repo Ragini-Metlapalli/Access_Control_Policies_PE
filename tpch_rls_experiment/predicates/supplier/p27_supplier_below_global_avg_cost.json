@@ -1,0 +1,7 @@
+{
+  "policy_id": "P27",
+  "table": "supplier",
+  "predicate_name": "dbo.p27_supplier_below_global_avg_cost",
+  "columns": ["s_suppkey"]
+}
+

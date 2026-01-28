@@ -1,0 +1,7 @@
+{
+  "policy_id": "P32",
+  "table": "supplier",
+  "predicate_name": "dbo.p32_supplier_urgent_orders",
+  "columns": ["s_suppkey"]
+}
+

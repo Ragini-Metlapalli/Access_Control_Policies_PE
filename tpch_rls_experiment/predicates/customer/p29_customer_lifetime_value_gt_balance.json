@@ -1,0 +1,7 @@
+{
+  "policy_id": "P29",
+  "table": "customer",
+  "predicate_name": "dbo.p29_customer_lifetime_value_gt_balance",
+  "columns": ["c_custkey", "c_acctbal"]
+}
+

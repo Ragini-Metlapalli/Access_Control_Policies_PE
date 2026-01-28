@@ -1,0 +1,7 @@
+{
+  "policy_id": "P33",
+  "table": "orders",
+  "predicate_name": "dbo.p33_orders_customer_above_nation_avg",
+  "columns": ["o_custkey"]
+}
+
