@@ -1,0 +1,6 @@
+{
+  "policy_id": "P15",
+  "table": "customer",
+  "predicate_name": "dbo.p15_customer_recent_large_orders",
+  "columns": ["c_custkey"]
+}

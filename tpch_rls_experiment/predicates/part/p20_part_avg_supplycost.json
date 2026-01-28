@@ -1,0 +1,6 @@
+{
+  "policy_id": "P20",
+  "table": "part",
+  "predicate_name": "dbo.p20_part_avg_supplycost",
+  "columns": ["p_partkey"]
+}

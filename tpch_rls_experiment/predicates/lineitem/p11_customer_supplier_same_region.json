@@ -1,0 +1,6 @@
+{
+  "policy_id": "P11",
+  "table": "lineitem",
+  "predicate_name": "dbo.p11_customer_supplier_same_region",
+  "columns": ["l_orderkey", "l_suppkey"]
+}

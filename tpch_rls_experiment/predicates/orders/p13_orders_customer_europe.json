@@ -1,0 +1,6 @@
+{
+  "policy_id": "P13",
+  "table": "orders",
+  "predicate_name": "dbo.p13_orders_customer_europe",
+  "columns": ["o_custkey"]
+}

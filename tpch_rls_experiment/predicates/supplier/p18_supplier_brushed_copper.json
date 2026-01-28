@@ -1,0 +1,6 @@
+{
+  "policy_id": "P18",
+  "table": "supplier",
+  "predicate_name": "dbo.p18_supplier_brushed_copper",
+  "columns": ["s_suppkey"]
+}

@@ -1,0 +1,6 @@
+{
+  "policy_id": "P21",
+  "table": "orders",
+  "predicate_name": "dbo.p21_orders_high_revenue",
+  "columns": ["o_orderkey"]
+}

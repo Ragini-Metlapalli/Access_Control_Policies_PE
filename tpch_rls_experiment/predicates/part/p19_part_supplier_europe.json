@@ -1,0 +1,6 @@
+{
+  "policy_id": "P19",
+  "table": "part",
+  "predicate_name": "dbo.p19_part_supplier_europe",
+  "columns": ["p_partkey"]
+}

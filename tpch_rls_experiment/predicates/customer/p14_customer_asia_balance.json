@@ -1,0 +1,6 @@
+{
+  "policy_id": "P14",
+  "table": "customer",
+  "predicate_name": "dbo.p14_customer_asia_balance",
+  "columns": ["c_acctbal", "c_nationkey"]
+}

@@ -1,0 +1,6 @@
+{
+  "policy_id": "P22",
+  "table": "orders",
+  "predicate_name": "dbo.p22_orders_no_late_shipments",
+  "columns": ["o_orderkey"]
+}

@@ -1,0 +1,6 @@
+{
+  "policy_id": "P17",
+  "table": "customer",
+  "predicate_name": "dbo.p17_customer_active_no_cancel",
+  "columns": ["c_custkey"]
+}

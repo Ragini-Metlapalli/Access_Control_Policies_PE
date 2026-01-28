@@ -1,0 +1,6 @@
+{
+  "policy_id": "P18",
+  "table": "supplier",
+  "predicate_name": "dbo.p24_supplier_multi_region",
+  "columns": ["s_suppkey"]
+}

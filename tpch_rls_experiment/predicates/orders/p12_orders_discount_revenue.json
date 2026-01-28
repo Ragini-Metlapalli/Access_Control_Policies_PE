@@ -1,0 +1,6 @@
+{
+  "policy_id": "P12",
+  "table": "orders",
+  "predicate_name": "dbo.p12_orders_discount_revenue",
+  "columns": ["o_orderkey"]
+}

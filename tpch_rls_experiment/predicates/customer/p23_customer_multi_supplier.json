@@ -1,0 +1,6 @@
+{
+  "policy_id": "P23",
+  "table": "customer",
+  "predicate_name": "dbo.p23_customer_multi_supplier",
+  "columns": ["c_custkey"]
+}
