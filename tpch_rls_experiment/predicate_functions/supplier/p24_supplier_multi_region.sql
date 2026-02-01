@@ -1,4 +1,10 @@
 -- P25: supplier if customer from two diff regions
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p24_supplier_multi_region;
+GO
+
 CREATE FUNCTION dbo.p24_supplier_multi_region
 (
     @suppkey BIGINT

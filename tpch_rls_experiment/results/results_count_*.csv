@@ -1,0 +1,11 @@
+mode,strategy,run_number,user,policy_ids,policy_names,predicate_functions,predicate_columns,tables_affected,cpu_ms,elapsed_ms,logical_reads,rows_returned,errors,machine,query_name,tables_used
+WITH_RLS,NO_CARTESIAN,1,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,3105,273,104890,1,,Mr,count_*.sql,lineitem
+WITH_RLS,NO_CARTESIAN,2,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,3239,320,104890,1,,Mr,count_*.sql,lineitem
+WITH_RLS,NO_CARTESIAN,3,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,3211,276,104890,1,,Mr,count_*.sql,lineitem
+WITH_RLS,NO_CARTESIAN,4,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,3055,275,104890,1,,Mr,count_*.sql,lineitem
+WITH_RLS,NO_CARTESIAN,5,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,3272,295,104890,1,,Mr,count_*.sql,lineitem
+NO_RLS,NO_CARTESIAN,1,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,1026,91,104890,1,,Mr,count_*.sql,lineitem
+NO_RLS,NO_CARTESIAN,2,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,1030,91,104890,1,,Mr,count_*.sql,lineitem
+NO_RLS,NO_CARTESIAN,3,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,1146,103,104890,1,,Mr,count_*.sql,lineitem
+NO_RLS,NO_CARTESIAN,4,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,1054,95,104890,1,,Mr,count_*.sql,lineitem
+NO_RLS,NO_CARTESIAN,5,user1,P2,lineitem_rls_policy,dbo.p2_no_carefully,l_comment,lineitem,1048,99,104890,1,,Mr,count_*.sql,lineitem

@@ -1,3 +1,9 @@
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p11_customer_supplier_same_region;
+GO
+
 -- P11: Orders with same customer region and supplier region
 CREATE FUNCTION dbo.p11_customer_supplier_same_region
 (

@@ -34,8 +34,15 @@ def run_sql(sql_text, db_conf):
     )
 
     if proc.returncode != 0:
-        raise RuntimeError(f"SQL execution failed:\n{proc.stderr}")
-
+        print("\n SQL FAILED")
+        print("SQL:")
+        print(sql_text)
+        print("STDERR:")
+        print(proc.stderr)
+        print("STDOUT:")
+        print(proc.stdout)
+        raise RuntimeError("SQL execution failed")
+    
     return proc.stdout
 
 

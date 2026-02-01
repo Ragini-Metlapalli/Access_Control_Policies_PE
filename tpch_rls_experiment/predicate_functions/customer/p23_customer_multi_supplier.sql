@@ -1,4 +1,10 @@
 -- P24: Customer visible if they have orders from at least 3 different suppliers
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p23_customer_multi_supplier;
+GO
+
 CREATE FUNCTION dbo.p23_customer_multi_supplier
 (
     @custkey BIGINT

@@ -1,6 +1,9 @@
 USE TPCH;
 GO
 
+DROP FUNCTION IF EXISTS dbo.p25_lineitem_above_brand_avg_price;
+GO
+
 CREATE FUNCTION dbo.p25_lineitem_above_brand_avg_price
 (
     @partkey BIGINT

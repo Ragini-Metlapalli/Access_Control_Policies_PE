@@ -1,5 +1,9 @@
 -- P31: Part visible only if it has never been ordered in quantities greater than 200
+USE TPCH;
+GO
 
+DROP FUNCTION IF EXISTS dbo.p31_part_no_large_quantity;
+GO
 
 CREATE FUNCTION dbo.p31_part_no_large_quantity
 (

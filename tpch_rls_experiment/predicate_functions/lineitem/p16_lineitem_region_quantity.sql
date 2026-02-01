@@ -1,4 +1,10 @@
 -- P16: Lineitem visible if supplier sold at least 20% of this part to customers in same region as Customer#000001111
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p16_lineitem_region_quantity;
+GO
+
 CREATE FUNCTION dbo.p16_lineitem_region_quantity
 (
     @partkey   BIGINT,

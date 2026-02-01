@@ -1,4 +1,10 @@
 -- P14: balance > 1000 n living in asia
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p14_customer_asia_balance;
+GO
+
 CREATE FUNCTION dbo.p14_customer_asia_balance
 (
     @acctbal   DECIMAL(15,2),

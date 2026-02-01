@@ -1,4 +1,10 @@
 -- P15: Customer visible if any order in last 90 days has lineitem quantity > 100
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p15_customer_recent_large_orders;
+GO
+
 CREATE FUNCTION dbo.p15_customer_recent_large_orders
 (
     @custkey BIGINT

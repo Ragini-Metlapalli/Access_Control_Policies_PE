@@ -1,4 +1,10 @@
 -- P17: customer with no cancelled orders and at least 5 orders in last 365 days
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p17_customer_active_no_cancel;
+GO
+
 CREATE FUNCTION dbo.p17_customer_active_no_cancel
 (
     @custkey BIGINT

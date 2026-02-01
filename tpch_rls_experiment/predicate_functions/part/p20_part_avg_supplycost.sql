@@ -1,5 +1,11 @@
 
 -- P20: Part visible if average supply cost < 50
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p20_part_avg_supplycost;
+GO
+
 CREATE FUNCTION dbo.p20_part_avg_supplycost
 (
     @partkey BIGINT

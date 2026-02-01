@@ -1,5 +1,9 @@
   --  P30: Lineitem visible only if supplier and customer are from different nations but same region
+USE TPCH;
+GO
 
+DROP FUNCTION IF EXISTS dbo.p30_lineitem_cross_nation_same_region;
+GO
 
 CREATE FUNCTION dbo.p30_lineitem_cross_nation_same_region
 (

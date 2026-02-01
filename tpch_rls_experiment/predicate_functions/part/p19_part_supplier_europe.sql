@@ -1,4 +1,10 @@
 -- p19: part visible if at least one supplier is in europe
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p19_part_supplier_europe;
+GO
+
 CREATE FUNCTION dbo.p19_part_supplier_europe
 (
     @partkey BIGINT

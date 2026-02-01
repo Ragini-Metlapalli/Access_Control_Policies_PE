@@ -1,4 +1,10 @@
 --  P29: Customer visible if their lifetime total order value exceeds their account balance
+USE TPCH;
+GO
+
+DROP FUNCTION IF EXISTS dbo.p29_customer_lifetime_value_gt_balance;
+GO
+
 CREATE FUNCTION dbo.p29_customer_lifetime_value_gt_balance
 (
     @custkey  BIGINT,

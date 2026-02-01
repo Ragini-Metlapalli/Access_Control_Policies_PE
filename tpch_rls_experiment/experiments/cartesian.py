@@ -5,10 +5,11 @@ from utils.helper import load_json, run_sql, append_csv, enrich_row
 from utils.sql_parser import extract_tables
 from utils.stats_parser import parse_stats
 
-
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 PREDICATES_DIR = os.path.join(ROOT, "predicates")
 QUERIES_DIR = os.path.join(ROOT, "queries")
+POLICY_TEMPLATE = os.path.join(ROOT, "policies/templates/policy_template.sql")
 
 DB_CONF = load_json(os.path.join(ROOT, "config/db_config.json"))
 EXP_CONF = load_json(os.path.join(ROOT, "config/experiment_config.json"))
@@ -16,33 +17,28 @@ EXP_CONF = load_json(os.path.join(ROOT, "config/experiment_config.json"))
 RESULTS_FILE = EXP_CONF["output"]["results_file"]
 
 
-def load_predicates_for_tables(tables):
-    preds = []
-    for table in tables:
-        table_dir = os.path.join(PREDICATES_DIR, table)
-        if not os.path.isdir(table_dir):
-            continue
-
-        for f in os.listdir(table_dir):
-            if f.endswith(".json"):
-                preds.append(load_json(os.path.join(table_dir, f)))
-    return preds
+def load_predicates_for_table(table):
+    path = os.path.join(PREDICATES_DIR, table)
+    if not os.path.isdir(path):
+        return []
+    return [
+        load_json(os.path.join(path, f))
+        for f in os.listdir(path)
+        if f.endswith(".json")
+    ]
 
 
-def set_all_policies_off(tables):
-    for table in tables:
-        sql = f"""
-        ALTER SECURITY POLICY dbo.{table}_rls_policy
-        WITH (STATE = OFF);
-        """
-        run_sql(sql, DB_CONF)
+def create_policy(pred, state):
+    template = open(POLICY_TEMPLATE).read()
 
+    sql = template.format(
+        policy_name=f"{pred['table']}_rls_policy",
+        predicate_name=pred["predicate_name"],
+        columns=", ".join(pred["columns"]),
+        table=pred["table"],
+        state=state
+    )
 
-def set_policy_on(table):
-    sql = f"""
-    ALTER SECURITY POLICY dbo.{table}_rls_policy
-    WITH (STATE = ON);
-    """
     run_sql(sql, DB_CONF)
 
 
@@ -62,40 +58,45 @@ def main():
         if not query_file.endswith(".sql"):
             continue
 
-        query_path = os.path.join(QUERIES_DIR, query_file)
-        query_sql = open(query_path).read()
+        query_sql = open(os.path.join(QUERIES_DIR, query_file)).read()
         tables = extract_tables(query_sql)
 
-        predicates = load_predicates_for_tables(tables)
+        # predicates per table
+        table_preds = {
+            table: load_predicates_for_table(table)
+            for table in tables
+            if load_predicates_for_table(table)
+        }
 
-        max_k = min(
-            len(predicates),
-            EXP_CONF["rls"]["max_cartesian_combinations"]
-        )
+        # Cartesian product across tables
+        combos = list(itertools.product(*table_preds.values()))
+        combos = combos[:EXP_CONF["rls"]["max_cartesian_combinations"]]
 
-        for k in range(1, max_k + 1):
-            for combo in itertools.combinations(predicates, k):
+        for combo in combos:
 
-                set_all_policies_off(tables)
+            for mode in EXP_CONF["modes"]:
+                state = "ON" if mode == "WITH_RLS" else "OFF"
 
                 for pred in combo:
-                    set_policy_on(pred["table"])
+                    create_policy(pred, state)
 
                 for run in range(1, EXP_CONF["runs_per_query"] + 1):
                     output = execute_query_as_user(
-                        query_sql, EXP_CONF["users_to_test"][0]
+                        query_sql,
+                        EXP_CONF["users_to_test"][0]
                     )
 
                     stats = parse_stats(output)
 
                     row = {
-                        "mode": "WITH_RLS",
+                        "mode": mode,
                         "strategy": "CARTESIAN",
                         "run_number": run,
                         "user": EXP_CONF["users_to_test"][0],
-                        "policies_applied": ",".join(
-                            [p["policy_id"] for p in combo]
-                        ),
+                        "policy_ids": ";".join(p["policy_id"] for p in combo),
+                        "predicate_functions": ";".join(p["predicate_name"] for p in combo),
+                        "predicate_columns": ";".join(",".join(p["columns"]) for p in combo),
+                        "tables_affected": ";".join(p["table"] for p in combo),
                         **stats
                     }
 
@@ -109,10 +110,7 @@ def main():
                     )
 
                     append_csv(RESULTS_FILE, row)
-
-                    time.sleep(
-                        EXP_CONF["execution"]["delay_between_runs_seconds"]
-                    )
+                    time.sleep(EXP_CONF["execution"]["delay_between_runs_seconds"])
 
 
 if __name__ == "__main__":
