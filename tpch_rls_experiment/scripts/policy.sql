@@ -5,10 +5,10 @@ DROP SECURITY POLICY IF EXISTS dbo.supplier_rls_policy;
 DROP SECURITY POLICY IF EXISTS dbo.part_rls_policy;
 GO
 -- CREATE SECURITY POLICY dbo.lineitem_rls_policy
-CREATE SECURITY POLICY dbo.orders_rls_policy
+-- CREATE SECURITY POLICY dbo.orders_rls_policy
 -- CREATE SECURITY POLICY dbo.customer_rls_policy
 -- CREATE SECURITY POLICY dbo.supplier_rls_policy
--- CREATE SECURITY POLICY dbo.part_rls_policy
+CREATE SECURITY POLICY dbo.part_rls_policy
 -- ADD FILTER PREDICATE dbo.p1_last_5y(l_shipdate) ON dbo.lineitem,
 -- ADD FILTER PREDICATE dbo.p2_no_carefully(l_comment) ON dbo.lineitem,
 -- ADD FILTER PREDICATE dbo.p3_return_discount(l_returnflag, l_discount) ON dbo.lineitem,
@@ -45,7 +45,7 @@ CREATE SECURITY POLICY dbo.orders_rls_policy
 -- ADD FILTER PREDICATE dbo.p33_orders_customer_above_nation_avg(o_custkey) ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p34_customer_multi_year_orders(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p35_lineitem_delay_above_shipmode_avg(l_shipmode,l_shipdate,l_receiptdate) ON dbo.lineitem
--- ADD FILTER PREDICATE dbo.p36_part_size_above_type_avg(p_partkey,p_size)ON dbo.part
+ADD FILTER PREDICATE dbo.p36_part_size_above_type_avg(p_partkey,p_size)ON dbo.part
 -- ADD FILTER PREDICATE dbo.p37_supplier_multi_part_types(s_suppkey) ON dbo.supplier
 -- ADD FILTER PREDICATE dbo.p38_order_quantity_above_customer_avg(o_orderkey,o_custkey)ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p39_customer_all_orders_truck_or_mail(c_custkey) ON dbo.customer
@@ -59,7 +59,7 @@ CREATE SECURITY POLICY dbo.orders_rls_policy
 -- ADD FILTER PREDICATE dbo.p47_supplier_no_low_price_parts(s_suppkey)ON dbo.supplier
 -- ADD FILTER PREDICATE dbo.p48_lineitem_orderdate_closer_to_ship(l_orderkey,l_shipdate,l_receiptdate)ON dbo.lineitem
 -- ADD FILTER PREDICATE dbo.p49_part_multi_nation_suppliers(p_partkey)ON dbo.part
-ADD FILTER PREDICATE dbo.p50_order_positive_quantity_discount_correlation(o_orderkey)ON dbo.orders
+-- ADD FILTER PREDICATE dbo.p50_order_positive_quantity_discount_correlation(o_orderkey)ON dbo.orders
 
 WITH (STATE = ON);
 GO
