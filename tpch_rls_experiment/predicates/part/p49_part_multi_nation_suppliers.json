@@ -1,0 +1,7 @@
+{
+  "policy_id": "P49",
+  "table": "part",
+  "predicate_name": "dbo.p49_part_multi_nation_suppliers",
+  "columns": ["p_partkey"]
+}
+

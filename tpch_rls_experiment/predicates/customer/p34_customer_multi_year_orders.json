@@ -1,0 +1,7 @@
+{
+  "policy_id": "P34",
+  "table": "customer",
+  "predicate_name": "dbo.p34_customer_multi_year_orders",
+  "columns": ["c_custkey"]
+}
+

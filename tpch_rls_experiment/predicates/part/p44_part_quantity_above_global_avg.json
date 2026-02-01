@@ -1,0 +1,7 @@
+{
+  "policy_id": "P44",
+  "table": "part",
+  "predicate_name": "dbo.p44_part_quantity_above_global_avg",
+  "columns": ["p_partkey"]
+}
+

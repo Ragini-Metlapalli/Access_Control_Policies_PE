@@ -1,0 +1,7 @@
+{
+  "policy_id": "P45",
+  "table": "orders",
+  "predicate_name": "dbo.p45_order_customer_supplier_comment_match",
+  "columns": ["o_orderkey", "o_custkey"]
+}
+

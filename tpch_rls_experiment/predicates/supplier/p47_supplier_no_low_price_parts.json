@@ -1,0 +1,7 @@
+{
+  "policy_id": "P47",
+  "table": "supplier",
+  "predicate_name": "dbo.p47_supplier_no_low_price_parts",
+  "columns": ["s_suppkey"]
+}
+

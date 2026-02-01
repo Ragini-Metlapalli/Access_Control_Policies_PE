@@ -1,0 +1,7 @@
+{
+  "policy_id": "P43",
+  "table": "supplier",
+  "predicate_name": "dbo.p43_supplier_multi_part_sizes",
+  "columns": ["s_suppkey"]
+}
+

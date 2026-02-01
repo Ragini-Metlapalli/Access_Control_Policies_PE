@@ -1,0 +1,7 @@
+{
+  "policy_id": "P50",
+  "table": "orders",
+  "predicate_name": "dbo.p50_order_positive_quantity_discount_correlation",
+  "columns": ["o_orderkey"]
+}
+

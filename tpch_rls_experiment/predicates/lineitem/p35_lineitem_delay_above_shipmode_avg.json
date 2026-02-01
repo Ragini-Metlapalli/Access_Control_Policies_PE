@@ -1,0 +1,7 @@
+{
+  "policy_id": "P35",
+  "table": "lineitem",
+  "predicate_name": "dbo.p35_lineitem_delay_above_shipmode_avg",
+  "columns": ["l_shipmode", "l_shipdate", "l_receiptdate"]
+}
+

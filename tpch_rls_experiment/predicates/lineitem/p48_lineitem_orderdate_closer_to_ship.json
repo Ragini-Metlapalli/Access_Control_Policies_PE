@@ -1,0 +1,7 @@
+{
+  "policy_id": "P48",
+  "table": "lineitem",
+  "predicate_name": "dbo.p48_lineitem_orderdate_closer_to_ship",
+  "columns": ["l_orderkey", "l_shipdate", "l_receiptdate"]
+}
+

@@ -1,0 +1,7 @@
+{
+  "policy_id": "P41",
+  "table": "orders",
+  "predicate_name": "dbo.p41_order_quantity_variation_limited",
+  "columns": ["o_orderkey"]
+}
+

@@ -1,0 +1,7 @@
+{
+  "policy_id": "P40",
+  "table": "lineitem",
+  "predicate_name": "dbo.p40_lineitem_supplier_nation_export_gt_import",
+  "columns": ["l_suppkey"]
+}
+

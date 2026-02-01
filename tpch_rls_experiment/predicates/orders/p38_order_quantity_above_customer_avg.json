@@ -1,0 +1,7 @@
+{
+  "policy_id": "P38",
+  "table": "orders",
+  "predicate_name": "dbo.p38_order_quantity_above_customer_avg",
+  "columns": ["o_orderkey", "o_custkey"]
+}
+

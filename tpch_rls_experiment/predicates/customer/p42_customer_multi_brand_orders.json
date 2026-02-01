@@ -1,0 +1,7 @@
+{
+  "policy_id": "P42",
+  "table": "customer",
+  "predicate_name": "dbo.p42_customer_multi_brand_orders",
+  "columns": ["c_custkey"]
+}
+

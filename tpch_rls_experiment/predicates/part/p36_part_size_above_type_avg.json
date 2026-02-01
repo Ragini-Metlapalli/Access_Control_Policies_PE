@@ -1,0 +1,7 @@
+{
+  "policy_id": "P36",
+  "table": "part",
+  "predicate_name": "dbo.p36_part_size_above_type_avg",
+  "columns": ["p_partkey", "p_size"]
+}
+

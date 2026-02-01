@@ -1,0 +1,7 @@
+{
+  "policy_id": "P46",
+  "table": "customer",
+  "predicate_name": "dbo.p46_customer_non_uniform_spending",
+  "columns": ["c_custkey"]
+}
+

@@ -1,0 +1,7 @@
+{
+  "policy_id": "P39",
+  "table": "customer",
+  "predicate_name": "dbo.p39_customer_all_orders_truck_or_mail",
+  "columns": ["c_custkey"]
+}
+
