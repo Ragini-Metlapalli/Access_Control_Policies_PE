@@ -32,7 +32,7 @@ WHERE
             SELECT MAX(o.o_orderdate)
             FROM dbo.orders o
             WHERE o.o_custkey = @custkey
-        ) >= DATEADD(DAY, -365, CAST(GETDATE() AS DATE))
+        ) >= DATEADD(DAY, -365, CAST('1998-08-01' AS DATE))
 
         AND
 

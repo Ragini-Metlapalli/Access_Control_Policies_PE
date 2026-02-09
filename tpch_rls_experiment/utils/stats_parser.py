@@ -5,6 +5,8 @@ def parse_stats(output):
     cpu_ms = None
     elapsed_ms = None
     logical_reads = 0
+    physical_reads = 0
+    read_ahead_reads = 0
     rows_returned = None
     errors = None
 
@@ -25,6 +27,16 @@ def parse_stats(output):
             lr_match = re.search(r"logical reads (\d+)", line)
             if lr_match:
                 logical_reads += int(lr_match.group(1))
+        
+        if "read-ahead reads" in line:
+            ra_match = re.search(r"read-ahead reads (\d+)", line)
+            if ra_match:
+                read_ahead_reads += int(ra_match.group(1))
+                
+        if "physical reads" in line:
+            pr_match = re.search(r"physical reads (\d+)", line)
+            if pr_match:
+                physical_reads += int(pr_match.group(1))
 
         # ROW COUNT (sqlcmd prints "(X rows affected)")
         if "rows affected" in line:
@@ -42,6 +54,8 @@ def parse_stats(output):
         "cpu_ms": cpu_ms,
         "elapsed_ms": elapsed_ms,
         "logical_reads": logical_reads,
+        "physical_reads": physical_reads,
+        "read_ahead_reads": read_ahead_reads,
         "rows_returned": rows_returned,
         "errors": errors
     }

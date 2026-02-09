@@ -1,5 +1,7 @@
 -- P40: Lineitem visible only if its supplier’s nation has higher total export value than import value
 
+-- Export value = total value of goods supplied by suppliers from that nation
+-- Import value = total value of goods purchased by customers from that nation
 
 CREATE FUNCTION dbo.p40_lineitem_supplier_nation_export_gt_import
 (

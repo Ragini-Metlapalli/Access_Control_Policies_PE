@@ -26,9 +26,10 @@ CREATE SECURITY POLICY dbo.part_rls_policy
 -- ADD FILTER PREDICATE dbo.p14_customer_asia_balance_v2(c_acctbal, c_nationkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p15_customer_recent_large_orders(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p16_lineitem_region_quantity(l_partkey, l_orderkey, l_quantity) ON dbo.lineitem
+-- ADD FILTER PREDICATE dbo.p16_lineitem_supplier_region_share(l_suppkey, l_partkey) ON dbo.lineitem
 -- ADD FILTER PREDICATE dbo.p17_customer_active_no_cancel(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p18_supplier_brushed_copper(s_suppkey) ON dbo.supplier
--- ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part
+ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part
 -- ADD FILTER PREDICATE dbo.p20_part_avg_supplycost(p_partkey) ON dbo.part
 -- ADD FILTER PREDICATE dbo.p21_orders_high_revenue(o_orderkey) ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p22_orders_no_late_shipments(o_orderkey) ON dbo.orders
@@ -45,7 +46,7 @@ CREATE SECURITY POLICY dbo.part_rls_policy
 -- ADD FILTER PREDICATE dbo.p33_orders_customer_above_nation_avg(o_custkey) ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p34_customer_multi_year_orders(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p35_lineitem_delay_above_shipmode_avg(l_shipmode,l_shipdate,l_receiptdate) ON dbo.lineitem
-ADD FILTER PREDICATE dbo.p36_part_size_above_type_avg(p_partkey,p_size)ON dbo.part
+-- ADD FILTER PREDICATE dbo.p36_part_size_above_type_avg(p_partkey,p_size)ON dbo.part
 -- ADD FILTER PREDICATE dbo.p37_supplier_multi_part_types(s_suppkey) ON dbo.supplier
 -- ADD FILTER PREDICATE dbo.p38_order_quantity_above_customer_avg(o_orderkey,o_custkey)ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p39_customer_all_orders_truck_or_mail(c_custkey) ON dbo.customer

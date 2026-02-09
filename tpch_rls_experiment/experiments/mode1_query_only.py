@@ -45,6 +45,8 @@ def create_policy(pred, state):
 
 def run_query(query_sql, user):
     wrapped = f"""
+    CHECKPOINT;
+    DBCC DROPCLEANBUFFERS;
     EXECUTE AS USER = '{user}';
     SET STATISTICS IO ON;
     SET STATISTICS TIME ON;

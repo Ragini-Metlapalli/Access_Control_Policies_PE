@@ -1,5 +1,7 @@
 -- P46: Customer visible only if the variance of their order revenues is greater than zero (i.e., non-uniform spending behavior)
 
+-- A customer is visible if they have at least two different net spending amounts across their lineitems.
+
 CREATE FUNCTION dbo.p46_customer_non_uniform_spending
 (
     @custkey BIGINT

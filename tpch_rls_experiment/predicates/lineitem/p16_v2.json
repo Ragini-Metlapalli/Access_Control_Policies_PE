@@ -1,0 +1,7 @@
+{
+  "policy_id": "P16",
+  "table": "lineitem",
+  "predicate_name": "dbo.p16_lineitem_supplier_region_share",
+  "columns": ["l_suppkey", "l_partkey"]
+}
+

@@ -1,0 +1,5 @@
+mode,strategy,run_number,user,policy_ids,predicate_functions,tables_affected,cpu_ms,elapsed_ms,logical_reads,rows_returned,errors,machine,query_name,tables_used
+WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,115253,24691,37255472,1,,Mr,count_*.sql,lineitem;
+NO_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,741,66,104890,1,,Mr,count_*.sql,lineitem;
+WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,929837,114335,511223878,1,,Mr,count_*.sql,lineitem;
+NO_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,540,50,104890,1,,Mr,count_*.sql,lineitem;
