@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-RESULTS_FILE = "results/results_all_queries.csv"
+RESULTS_FILE = "results/results_multiple_policies_simultaneously_enabled.csv"
 PLOTS_DIR = "plots"
 SHOW_PLOTS = False
 
@@ -15,7 +15,9 @@ df = pd.read_csv(RESULTS_FILE)
 df["query_num"] = df["query_name"].str.extract(r"(\d+)").astype(int)
 
 # Baseline only (NO RLS)
-baseline = df[df["mode"] == "NO_RLS"].copy()
+baseline = df[df["mode"] == "WITH_RLS"].copy()
+# baseline = df[df["mode"] == "NO_RLS"].copy()
+
 
 # Sort baseline by query number
 baseline = baseline.sort_values("query_num")
@@ -47,7 +49,8 @@ fig, ax = plt.subplots(figsize=(12, 6))
 ax.bar(agg_time["query_num"], agg_time["elapsed_sec"])
 ax.set_xlabel("TPC-H Query Number")
 ax.set_ylabel("Execution Time (seconds)")
-ax.set_title("Baseline Execution Time of TPC-H Queries (No RLS)")
+# ax.set_title("Baseline Execution Time of TPC-H Queries (No RLS)")
+ax.set_title("Execution Time with Multiple Policies Enabled")
 ax.set_xticks(agg_time["query_num"])
 
 add_bar_labels(
@@ -58,7 +61,8 @@ add_bar_labels(
 
 
 plt.tight_layout()
-plt.savefig(f"{PLOTS_DIR}/baseline_execution_time_sec.png", dpi=300)
+# plt.savefig(f"{PLOTS_DIR}/baseline_execution_time_sec.png", dpi=300)
+plt.savefig(f"{PLOTS_DIR}/execution_time_sec.png", dpi=300)
 if SHOW_PLOTS:
     plt.show()
 plt.close(fig)
@@ -80,7 +84,8 @@ ax.bar(
 )
 ax.set_xlabel("TPC-H Query Number")
 ax.set_ylabel("Logical Reads (x10^3)")
-ax.set_title("Baseline Logical Buffer Accesses (No RLS)")
+# ax.set_title("Baseline Logical Buffer Accesses (No RLS)")
+ax.set_title("Logical Buffer accesses with Multiple Policies Enabled")
 ax.set_xticks(agg_logical["query_num"])
 
 add_bar_labels(
@@ -93,7 +98,8 @@ add_bar_labels(
 
 
 plt.tight_layout()
-plt.savefig(f"{PLOTS_DIR}/baseline_logical_reads.png", dpi=300)
+# plt.savefig(f"{PLOTS_DIR}/baseline_logical_reads.png", dpi=300)
+plt.savefig(f"{PLOTS_DIR}/logical_reads.png", dpi=300)
 if SHOW_PLOTS:
     plt.show()
 plt.close(fig)
@@ -117,7 +123,8 @@ ax.bar(
 
 ax.set_xlabel("TPC-H Query Number")
 ax.set_ylabel("Read-Ahead Reads (x10³)")
-ax.set_title("Baseline Read-Ahead Disk Reads (No RLS)")
+# ax.set_title("Baseline Read-Ahead Disk Reads (No RLS)")
+ax.set_title("Read-Ahead Disk Reads with Multiple Policies Enabled")
 ax.set_xticks(agg_readahead["query_num"])
 
 add_bar_labels(
@@ -128,7 +135,8 @@ add_bar_labels(
 )
 
 plt.tight_layout()
-plt.savefig(f"{PLOTS_DIR}/baseline_read_ahead_reads.png", dpi=300)
+# plt.savefig(f"{PLOTS_DIR}/baseline_read_ahead_reads.png", dpi=300)
+plt.savefig(f"{PLOTS_DIR}/read_ahead_reads.png", dpi=300)
 if SHOW_PLOTS:
     plt.show()
 plt.close(fig)
@@ -151,7 +159,8 @@ ax.bar(
 
 ax.set_xlabel("TPC-H Query Number")
 ax.set_ylabel("Physical Reads")
-ax.set_title("Baseline Physical Reads (No RLS)")
+# ax.set_title("Baseline Physical Reads (No RLS)")
+ax.set_title("Physical Reads with Multiple Policies Enabled")
 ax.set_xticks(agg_physical["query_num"])
 
 add_bar_labels(
@@ -162,7 +171,8 @@ add_bar_labels(
 )
 
 plt.tight_layout()
-plt.savefig(f"{PLOTS_DIR}/baseline_physical_reads_absolute.png", dpi=300)
+# plt.savefig(f"{PLOTS_DIR}/baseline_physical_reads_absolute.png", dpi=300)
+plt.savefig(f"{PLOTS_DIR}/physical_reads_absolute.png", dpi=300)
 if SHOW_PLOTS:
     plt.show()
 plt.close(fig)
@@ -190,7 +200,8 @@ ax.bar(
 
 ax.set_xlabel("TPC-H Query Number")
 ax.set_ylabel("Combined Disk Reads (x10³)")
-ax.set_title("Baseline Combined Disk Reads (Physical + Read-Ahead)")
+# ax.set_title("Baseline Combined Disk Reads (Physical + Read-Ahead)")
+ax.set_title("Combined Disk Reads (Physical + Read-Ahead) with Multiple Policies Enabled")
 ax.set_xticks(agg_combined["query_num"])
 
 add_bar_labels(
@@ -201,7 +212,8 @@ add_bar_labels(
 )
 
 plt.tight_layout()
-plt.savefig(f"{PLOTS_DIR}/baseline_combined_disk_reads.png", dpi=300)
+# plt.savefig(f"{PLOTS_DIR}/baseline_combined_disk_reads.png", dpi=300)
+plt.savefig(f"{PLOTS_DIR}/combined_disk_reads.png", dpi=300)
 if SHOW_PLOTS:
     plt.show()
 plt.close(fig)
