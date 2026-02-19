@@ -1,0 +1,2 @@
+mode,strategy,run_number,user,policy_ids,predicate_functions,tables_affected,cpu_ms,elapsed_ms,logical_reads,physical_reads,read_ahead_reads,rows_returned,errors,machine,query_name,tables_used
+WITH_RLS,MODE2_EXPLICIT,1,user1,P25,dbo.p25_lineitem_above_brand_avg_price,lineitem,14828366,1361317,823375261,2891,123589,187,,Mr,21.sql,"lineitem,nation,orders,supplier"

@@ -1,7 +1,7 @@
 mode,strategy,run_number,user,policy_ids,predicate_functions,tables_affected,cpu_ms,elapsed_ms,logical_reads,physical_reads,read_ahead_reads,rows_returned,errors,machine,query_name,tables_used
-WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,148902,41342,45568161,440,142957,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
-WITH_RLS,MODE2_EXPLICIT,2,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,138988,39909,45568161,443,142976,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
-WITH_RLS,MODE2_EXPLICIT,3,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,133983,39949,45568161,443,142976,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
-WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,209087,103936,125254121,24140,473841,187,,Mr,21.sql,"lineitem,nation,orders,supplier"
-WITH_RLS,MODE2_EXPLICIT,2,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,212386,106335,125254121,18061,485498,187,,Mr,21.sql,"lineitem,nation,orders,supplier"
-WITH_RLS,MODE2_EXPLICIT,3,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,209562,100801,125254121,18478,419980,187,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,145236,38199,45568161,440,142972,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,2,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,133386,37384,45568161,441,142967,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,3,user1,P16,dbo.p16_lineitem_region_quantity,lineitem,135488,38070,45568161,441,142956,0,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,1,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,199713,95710,125254121,3303,120088,187,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,2,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,203663,96105,125254121,3304,120087,187,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,3,user1,P16,dbo.p16_lineitem_supplier_region_share,lineitem,201234,94426,125254121,3304,120087,187,,Mr,21.sql,"lineitem,nation,orders,supplier"

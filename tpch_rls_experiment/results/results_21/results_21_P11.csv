@@ -1,0 +1,4 @@
+mode,strategy,run_number,user,policy_ids,predicate_functions,tables_affected,cpu_ms,elapsed_ms,logical_reads,physical_reads,read_ahead_reads,rows_returned,errors,machine,query_name,tables_used
+WITH_RLS,MODE2_EXPLICIT,1,user1,P11,dbo.p11_customer_supplier_same_region,lineitem,118440,12158,9782321,441,142957,204,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,2,user1,P11,dbo.p11_customer_supplier_same_region,lineitem,121497,12415,9782321,441,142959,204,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,3,user1,P11,dbo.p11_customer_supplier_same_region,lineitem,117955,11878,9782321,442,142957,204,,Mr,21.sql,"lineitem,nation,orders,supplier"

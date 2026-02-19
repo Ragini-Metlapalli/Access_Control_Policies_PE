@@ -9,6 +9,6 @@ GO
 CREATE NONCLUSTERED INDEX p19_idx
 ON [dbo].[partsupp] ([PS_SuppKey])
 
--- DROP INDEX p19_idx ON dbo.partsupp
--- GO
+DROP INDEX p19_idx ON dbo.partsupp
+GO
 

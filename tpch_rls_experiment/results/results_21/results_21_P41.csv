@@ -1,0 +1,4 @@
+mode,strategy,run_number,user,policy_ids,predicate_functions,tables_affected,cpu_ms,elapsed_ms,logical_reads,physical_reads,read_ahead_reads,rows_returned,errors,machine,query_name,tables_used
+WITH_RLS,MODE2_EXPLICIT,1,user1,P41,dbo.p41_order_quantity_variation_limited,orders,102578,10250,8950572,5,142957,192,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,2,user1,P41,dbo.p41_order_quantity_variation_limited,orders,114761,11225,8950572,5,142957,192,,Mr,21.sql,"lineitem,nation,orders,supplier"
+WITH_RLS,MODE2_EXPLICIT,3,user1,P41,dbo.p41_order_quantity_variation_limited,orders,111265,11044,8950572,5,142957,192,,Mr,21.sql,"lineitem,nation,orders,supplier"

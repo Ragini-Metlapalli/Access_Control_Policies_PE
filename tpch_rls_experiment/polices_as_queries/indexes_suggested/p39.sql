@@ -11,6 +11,6 @@ ON [dbo].[lineitem] ([L_ShipMode])
 INCLUDE ([L_SuppKey])
 GO
 
--- DROP INDEX p39_idx ON dbo.lineitem
--- GO
+DROP INDEX p39_idx ON dbo.lineitem
+GO
 
