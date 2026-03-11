@@ -4,11 +4,12 @@ The Query Processor estimates that implementing the following index could improv
 */
 
 
+DROP INDEX IF EXISTS p19_idx on partsupp
+GO
+
 USE [TPCH]
 GO
 CREATE NONCLUSTERED INDEX p19_idx
 ON [dbo].[partsupp] ([PS_SuppKey])
 
-DROP INDEX p19_idx ON dbo.partsupp
-GO
 

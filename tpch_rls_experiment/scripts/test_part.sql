@@ -8,9 +8,9 @@ GO
 -- GO
 
 
--- CREATE NONCLUSTERED INDEX idx_partsupp_supp_part
--- ON dbo.partsupp (ps_suppkey, ps_partkey);
--- GO
+CREATE NONCLUSTERED INDEX idx_partsupp_supp_part
+ON dbo.partsupp (ps_suppkey, ps_partkey);
+GO
 
 
 --Measure performance WITHOUT RLS
@@ -43,5 +43,5 @@ GO
 -- DROP INDEX idx_partsupp_part_supp ON dbo.partsupp;
 -- GO
 
--- DROP INDEX idx_partsupp_supp_part ON dbo.partsupp;
--- GO
+DROP INDEX idx_partsupp_supp_part ON dbo.partsupp;
+GO

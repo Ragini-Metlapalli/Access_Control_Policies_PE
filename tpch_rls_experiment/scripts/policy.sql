@@ -4,11 +4,11 @@ DROP SECURITY POLICY IF EXISTS dbo.customer_rls_policy;
 DROP SECURITY POLICY IF EXISTS dbo.supplier_rls_policy;
 DROP SECURITY POLICY IF EXISTS dbo.part_rls_policy;
 GO
--- CREATE SECURITY POLICY dbo.lineitem_rls_policy
+CREATE SECURITY POLICY dbo.lineitem_rls_policy
 -- CREATE SECURITY POLICY dbo.orders_rls_policy
 -- CREATE SECURITY POLICY dbo.customer_rls_policy
 -- CREATE SECURITY POLICY dbo.supplier_rls_policy
-CREATE SECURITY POLICY dbo.part_rls_policy
+-- CREATE SECURITY POLICY dbo.part_rls_policy
 -- ADD FILTER PREDICATE dbo.p1_last_5y(l_shipdate) ON dbo.lineitem,
 -- ADD FILTER PREDICATE dbo.p2_no_carefully(l_comment) ON dbo.lineitem,
 -- ADD FILTER PREDICATE dbo.p3_return_discount(l_returnflag, l_discount) ON dbo.lineitem,
@@ -29,7 +29,7 @@ CREATE SECURITY POLICY dbo.part_rls_policy
 -- ADD FILTER PREDICATE dbo.p16_lineitem_supplier_region_share(l_suppkey, l_partkey) ON dbo.lineitem
 -- ADD FILTER PREDICATE dbo.p17_customer_active_no_cancel(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p18_supplier_brushed_copper(s_suppkey) ON dbo.supplier
-ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part
+-- ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part
 -- ADD FILTER PREDICATE dbo.p20_part_avg_supplycost(p_partkey) ON dbo.part
 -- ADD FILTER PREDICATE dbo.p21_orders_high_revenue(o_orderkey) ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p22_orders_no_late_shipments(o_orderkey) ON dbo.orders
@@ -50,7 +50,7 @@ ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part
 -- ADD FILTER PREDICATE dbo.p37_supplier_multi_part_types(s_suppkey) ON dbo.supplier
 -- ADD FILTER PREDICATE dbo.p38_order_quantity_above_customer_avg(o_orderkey,o_custkey)ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p39_customer_all_orders_truck_or_mail(c_custkey) ON dbo.customer
--- ADD FILTER PREDICATE dbo.p40_lineitem_supplier_nation_export_gt_import(l_suppkey)ON dbo.lineitem
+ADD FILTER PREDICATE dbo.p40_lineitem_supplier_nation_export_gt_import(l_suppkey)ON dbo.lineitem
 -- ADD FILTER PREDICATE dbo.p41_order_quantity_variation_limited(o_orderkey)ON dbo.orders
 -- ADD FILTER PREDICATE dbo.p42_customer_multi_brand_orders(c_custkey) ON dbo.customer
 -- ADD FILTER PREDICATE dbo.p43_supplier_multi_part_sizes(s_suppkey) ON dbo.supplier

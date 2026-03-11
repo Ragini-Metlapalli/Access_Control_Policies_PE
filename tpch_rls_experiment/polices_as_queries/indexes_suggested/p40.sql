@@ -3,6 +3,9 @@ Missing Index Details from 5_p40.sql
 The Query Processor estimates that implementing the following index could improve the query cost by 27.551%.
 */
 
+DROP INDEX IF EXISTS p40_idx on lineitem
+GO
+
 USE [tpch]
 GO
 CREATE NONCLUSTERED INDEX p40_idx

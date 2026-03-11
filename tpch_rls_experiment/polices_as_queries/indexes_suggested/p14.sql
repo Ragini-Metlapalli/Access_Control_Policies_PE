@@ -4,12 +4,12 @@ The Query Processor estimates that implementing the following index could improv
 */
 
 
--- USE [TPCH]
--- GO
--- CREATE NONCLUSTERED INDEX p14_idx
--- ON [dbo].[customer] ([C_NationKey],[C_AcctBal])
--- INCLUDE ([C_Name],[C_Address],[C_Phone],[C_MktSegment],[C_Comment],[skip])
--- GO
+USE [TPCH]
+GO
+CREATE NONCLUSTERED INDEX p14_idx
+ON [dbo].[customer] ([C_NationKey],[C_AcctBal])
+INCLUDE ([C_Name],[C_Address],[C_Phone],[C_MktSegment],[C_Comment],[skip])
+GO
 
 DROP INDEX p14_idx ON dbo.customer
 GO

@@ -4,6 +4,8 @@ The Query Processor estimates that implementing the following index could improv
 */
 
 
+DROP INDEX IF EXISTS p35_idx on lineitem
+GO
 
 USE [tpch]
 GO
