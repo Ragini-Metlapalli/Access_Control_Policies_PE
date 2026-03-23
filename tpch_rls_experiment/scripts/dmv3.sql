@@ -1,3 +1,4 @@
+-- KILL 62 WITH STATUSONLY;
 SELECT 
     r.session_id,
     r.blocking_session_id,

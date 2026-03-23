@@ -4,6 +4,8 @@ GO
 GRANT SELECT ON lineitem TO user1;
 GRANT SELECT ON lineitem TO user2;
 GRANT SELECT ON lineitem TO user3;
+GRANT SELECT ON SCHEMA::dbo TO user1;
+
 GO
 
 
