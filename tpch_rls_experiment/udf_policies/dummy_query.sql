@@ -36,3 +36,6 @@ WHERE dbo.udf_dummy_blackbox(l.l_suppkey) = 1
 OPTION (USE HINT('DISABLE_TSQL_SCALAR_UDF_INLINING'));
 
 
+SELECT count(*)
+FROM dbo.lineitem l
+WHERE dbo.udf_p40_lineitem_supplier_nation_export_gt_import(l.l_suppkey) = 1;
