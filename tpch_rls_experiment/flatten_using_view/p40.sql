@@ -1,3 +1,7 @@
+DROP VIEW IF EXISTS dbo.v_nation_trade_final;
+DROP VIEW IF EXISTS dbo.v_nation_trade_summary;
+GO
+
 -- create view
 CREATE VIEW dbo.v_nation_trade_summary
 WITH SCHEMABINDING
@@ -26,7 +30,6 @@ JOIN dbo.customer c
     ON c.c_custkey = o.o_custkey
 GROUP BY c.c_nationkey;
 GO
-
 
 -- aggregate
 CREATE VIEW dbo.v_nation_trade_final
