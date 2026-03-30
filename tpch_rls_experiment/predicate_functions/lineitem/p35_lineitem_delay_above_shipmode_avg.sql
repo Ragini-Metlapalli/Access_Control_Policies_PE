@@ -1,4 +1,7 @@
 -- P35: Lineitem visible only if its shipping delay exceeds the average delay for that ship mode
+DROP FUNCTION IF EXISTS dbo.p35_lineitem_delay_above_shipmode_avg
+GO
+
 CREATE FUNCTION dbo.p35_lineitem_delay_above_shipmode_avg
 (
     @shipmode     VARCHAR(20),

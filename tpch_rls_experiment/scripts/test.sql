@@ -19,52 +19,49 @@ GO
 
 --Measure performance WITH RLS
 
-ALTER SECURITY POLICY dbo.q7_P19_P40_P14 WITH (STATE = ON);
+ALTER SECURITY POLICY dbo.q21_p19_p40 WITH (STATE = ON);
 GO
 CHECKPOINT;
 DBCC DROPCLEANBUFFERS;
-EXECUTE AS USER = 'user1';
+-- EXECUTE AS USER = 'user1';
 
 -- SELECT COUNT(*) FROM dbo.lineitem;
 SELECT
-    o_year,
-    SUM(
-        CASE
-            WHEN nation = 'BRAZIL'
-            THEN volume
-            ELSE 0
-        END
-    ) * 1.0 / SUM(volume) AS mkt_share
-FROM (
-    SELECT
-        YEAR(o.o_orderdate) AS o_year,
-        l.l_extendedprice * (1 - l.l_discount) AS volume,
-        n2.n_name AS nation
-    FROM
-        dbo.part     p,
-        dbo.supplier s,
-        dbo.lineitem l,
-        dbo.orders   o,
-        dbo.customer c,
-        dbo.nation   n1,
-        dbo.nation   n2,
-        dbo.region   r
-    WHERE
-            p.p_partkey = l.l_partkey
-        AND s.s_suppkey = l.l_suppkey
-        AND l.l_orderkey = o.o_orderkey
-        AND o.o_custkey = c.c_custkey
-        AND c.c_nationkey = n1.n_nationkey
-        AND n1.n_regionkey = r.r_regionkey
-        AND r.r_name = 'AMERICA'
-        AND s.s_nationkey = n2.n_nationkey
-        AND o.o_orderdate BETWEEN '1995-01-01' AND '1996-12-31'
-        AND p.p_type = 'ECONOMY ANODIZED STEEL'
-) AS all_nations
+    s.s_name,
+    COUNT(*) AS numwait
+FROM
+    dbo.supplier s,
+    dbo.lineitem l1,
+    dbo.orders o,
+    dbo.nation n
+WHERE
+    s.s_suppkey = l1.l_suppkey
+    AND o.o_orderkey = l1.l_orderkey
+    AND o.o_orderstatus = 'F'
+    AND l1.l_receiptdate > l1.l_commitdate
+    AND EXISTS (
+        SELECT *
+        FROM dbo.lineitem l2
+        WHERE
+            l2.l_orderkey = l1.l_orderkey
+            AND l2.l_suppkey <> l1.l_suppkey
+    )
+    AND NOT EXISTS (
+        SELECT *
+        FROM dbo.lineitem l3
+        WHERE
+            l3.l_orderkey = l1.l_orderkey
+            AND l3.l_suppkey <> l1.l_suppkey
+            AND l3.l_receiptdate > l3.l_commitdate
+    )
+    AND s.s_nationkey = n.n_nationkey 
+    AND n.n_name = 'INDIA' --originally GERMANY was there
 GROUP BY
-    o_year
+    s.s_name
 ORDER BY
-    o_year;
+    numwait DESC,
+    s.s_name
+-- OPTION (MAXDOP 1); --max parallelism is 1
 
 REVERT;
 GO

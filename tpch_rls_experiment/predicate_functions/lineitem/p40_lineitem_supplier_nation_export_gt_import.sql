@@ -5,6 +5,9 @@
 DROP FUNCTION dbo.p40_lineitem_supplier_nation_export_gt_import
 GO
 
+DROP FUNCTION IF EXISTS dbo.p40_lineitem_supplier_nation_export_gt_import
+GO 
+
 CREATE FUNCTION dbo.p40_lineitem_supplier_nation_export_gt_import
 (
     @suppkey BIGINT
