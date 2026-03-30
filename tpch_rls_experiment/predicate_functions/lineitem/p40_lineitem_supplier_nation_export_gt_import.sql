@@ -2,6 +2,8 @@
 
 -- Export value = total value of goods supplied by suppliers from that nation
 -- Import value = total value of goods purchased by customers from that nation
+DROP FUNCTION dbo.p40_lineitem_supplier_nation_export_gt_import
+GO
 
 CREATE FUNCTION dbo.p40_lineitem_supplier_nation_export_gt_import
 (

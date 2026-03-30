@@ -1,3 +1,3 @@
 SELECT *
 FROM dbo.lineitem l
-WHERE dbo.udf_p40_lineitem(l.l_suppkey) = 1;
+WHERE dbo.udf_p40_inline_off(l.l_suppkey) = 1

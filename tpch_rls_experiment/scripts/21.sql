@@ -21,17 +21,17 @@ GO
 
 
 
--- q21_p19_p40
-CREATE SECURITY POLICY dbo.q21_p19_p40
-ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part,
-ADD FILTER PREDICATE dbo.p40_lineitem_supplier_nation_export_gt_import(l_suppkey)ON dbo.lineitem
-
-
-
--- -- q21_p19_p35
--- CREATE SECURITY POLICY dbo.q21_p19_p35
+-- -- q21_p19_p40
+-- CREATE SECURITY POLICY dbo.q21_p19_p40
 -- ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part,
--- ADD FILTER PREDICATE dbo.p35_lineitem_delay_above_shipmode_avg(l_shipmode,l_shipdate,l_receiptdate) ON dbo.lineitem
+-- ADD FILTER PREDICATE dbo.p40_lineitem_supplier_nation_export_gt_import(l_suppkey)ON dbo.lineitem
+
+
+
+-- q21_p19_p35
+CREATE SECURITY POLICY dbo.q21_p19_p35
+ADD FILTER PREDICATE dbo.p19_part_supplier_europe(p_partkey) ON dbo.part,
+ADD FILTER PREDICATE dbo.p35_lineitem_delay_above_shipmode_avg(l_shipmode,l_shipdate,l_receiptdate) ON dbo.lineitem
 
 -- WITH (STATE = ON);
 -- GO

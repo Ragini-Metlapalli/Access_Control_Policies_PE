@@ -1,6 +1,4 @@
--- Enable RLS on both tables
-ALTER TABLE lineitem ENABLE ROW LEVEL SECURITY;
-ALTER TABLE supplier ENABLE ROW LEVEL SECURITY;
+
 
 -- Policy on lineitem: references supplier
 CREATE POLICY lineitem_policy ON lineitem
