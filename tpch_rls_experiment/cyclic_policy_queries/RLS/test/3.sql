@@ -1,8 +1,17 @@
+-- Clear cache (for fair compile + execution measurement)
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
 -- Disable others
 ALTER SECURITY POLICY query3_orders_customer_policy_view WITH (STATE = OFF);
 
 -- Enable RLS
 ALTER SECURITY POLICY query3_orders_customer_policy_rls WITH (STATE = ON);
+
+-- Switch user context
+EXECUTE AS USER = 'user1';
+GO
 
 -- Run query
 SELECT
@@ -20,4 +29,5 @@ WHERE
 GROUP BY
     l.l_orderkey,
     o.o_orderdate,
-    o.o_shippriority;
+    o.o_shippriority
+OPTION (RECOMPILE);
