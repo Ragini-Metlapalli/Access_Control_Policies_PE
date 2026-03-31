@@ -1,4 +1,7 @@
 DROP SECURITY POLICY IF EXISTS order_rls_policy;
+
+DROP SECURITY POLICY IF EXISTS dbo.query18_orders_customer_policy_view;
+
 GO
 
 CREATE SECURITY POLICY order_rls_policy

@@ -17,7 +17,7 @@ RETURN
     SELECT 1 AS fn_result
     WHERE 
         EXISTS (
-                SELECT 1 FROM dbo.fn_policy_not_q_2(
+                SELECT 1 FROM dbo.fn_policy_not_q(
                     @o_orderkey,
                     @o_custkey,
                     @o_orderstatus,
@@ -27,7 +27,7 @@ RETURN
         )
         AND
         EXISTS (
-            SELECT 1 FROM dbo.fn_policy_p_2(
+            SELECT 1 FROM dbo.fn_policy_p(
                 @o_orderkey,
                 @o_custkey,
                 @o_orderstatus,
