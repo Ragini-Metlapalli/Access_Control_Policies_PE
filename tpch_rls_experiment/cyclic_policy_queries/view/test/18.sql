@@ -1,10 +1,20 @@
+
 -- Disable others
-ALTER SECURITY POLICY query18_orders_customer_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query18_orders_customer_policy_rls WITH (STATE = OFF);
 
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
 
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
 
 -- Enable view
 ALTER SECURITY POLICY query18_orders_customer_policy_view WITH (STATE = ON);
+
+EXECUTE AS USER = 'user1';
+GO
 
 
 SELECT
@@ -31,4 +41,5 @@ GROUP BY
     o.o_totalprice
 ORDER BY
     o.o_totalprice DESC,
-    o.o_orderdate;
+    o.o_orderdate
+OPTION (RECOMPILE);

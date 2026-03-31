@@ -25,7 +25,7 @@ RETURNS TABLE
 WITH SCHEMABINDING
 AS
 RETURN
-SELECT 1
+SELECT 1 AS allowed
 FROM dbo.v_p6_customer_flag v
 WHERE v.o_custkey = @custkey
   AND v.valid_pairs > 0;

@@ -1,9 +1,20 @@
 -- Disable others
-ALTER SECURITY POLICY query12_orders_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query12_orders_policy_rls WITH (STATE = OFF);
+
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
 
 --enable view
 ALTER SECURITY POLICY query12_orders_policy_view WITH (STATE = ON);
 
+EXECUTE AS USER = 'user1';
+GO
 
 SELECT
     l.l_shipmode,
@@ -20,6 +31,7 @@ WHERE
     AND l.l_receiptdate >= '1995-01-01'
     AND l.l_receiptdate < DATEADD(YEAR,1,'1995-01-01')
 GROUP BY l.l_shipmode
-ORDER BY l.l_shipmode;
+ORDER BY l.l_shipmode
+OPTION (RECOMPILE);
 
 GO

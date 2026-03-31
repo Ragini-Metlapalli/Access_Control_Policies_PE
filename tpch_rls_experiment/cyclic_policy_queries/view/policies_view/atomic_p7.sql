@@ -18,7 +18,7 @@ RETURNS TABLE
 WITH SCHEMABINDING
 AS
 RETURN
-SELECT 1
+SELECT 1 AS allowed
 FROM dbo.v_p7_part_flag v
 WHERE v.l_partkey = @partkey
   AND v.has_large_qty = 0;

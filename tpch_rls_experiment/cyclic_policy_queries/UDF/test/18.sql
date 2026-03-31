@@ -1,6 +1,15 @@
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
+
 -- Disable others
-ALTER SECURITY POLICY query18_orders_customer_policy_view WITH (STATE = OFF);
-ALTER SECURITY POLICY query18_orders_customer_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query18_orders_customer_policy_view WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query18_orders_customer_policy_rls WITH (STATE = OFF);
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+
 
 SELECT
     c.c_name,
@@ -29,4 +38,9 @@ GROUP BY
     o.o_totalprice
 ORDER BY
     o.o_totalprice DESC,
-    o.o_orderdate;
+    o.o_orderdate
+OPTION (
+        RECOMPILE, 
+        USE HINT('DISABLE_TSQL_SCALAR_UDF_INLINING'));
+
+GO

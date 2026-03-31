@@ -19,7 +19,7 @@ RETURNS TABLE
 WITH SCHEMABINDING
 AS
 RETURN
-SELECT 1
+SELECT 1 AS allowed
 FROM dbo.v_p11_orders_sum v
 WHERE v.l_orderkey = @orderkey
   AND v.total_revenue > 100000;

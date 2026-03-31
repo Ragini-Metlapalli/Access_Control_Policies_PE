@@ -18,7 +18,7 @@ RETURNS TABLE
 WITH SCHEMABINDING
 AS
 RETURN
-SELECT 1
+SELECT 1 AS allowed
 FROM dbo.v_p8_supplier_flag v
 WHERE v.ps_suppkey = @suppkey
   AND v.has_low_price = 0;

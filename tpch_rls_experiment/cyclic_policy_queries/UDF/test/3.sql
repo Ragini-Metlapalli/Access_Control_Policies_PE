@@ -1,5 +1,13 @@
-ALTER SECURITY POLICY query3_orders_customer_policy_rls WITH (STATE = OFF);
-ALTER SECURITY POLICY query3_orders_customer_policy_view WITH (STATE = OFF);
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
+-- ALTER SECURITY POLICY query3_orders_customer_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query3_orders_customer_policy_view WITH (STATE = OFF);
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+
 
 -- Run query with UDF
 SELECT
@@ -19,6 +27,8 @@ WHERE
 GROUP BY
     l.l_orderkey,
     o.o_orderdate,
-    o.o_shippriority;
-OPTION (USE HINT('DISABLE_TSQL_SCALAR_UDF_INLINING'));
+    o.o_shippriority
+OPTION (
+        RECOMPILE, 
+        USE HINT('DISABLE_TSQL_SCALAR_UDF_INLINING'));
 GO

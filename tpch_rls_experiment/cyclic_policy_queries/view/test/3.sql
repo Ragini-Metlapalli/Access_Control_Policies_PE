@@ -1,8 +1,20 @@
 -- Disable others
-ALTER SECURITY POLICY query3_orders_customer_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query3_orders_customer_policy_rls WITH (STATE = OFF);
+
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
 
 -- Enable view
 ALTER SECURITY POLICY query3_orders_customer_policy_view WITH (STATE = ON);
+
+EXECUTE AS USER = 'user1';
+GO
+
 
 -- Run query
 SELECT
@@ -20,4 +32,5 @@ WHERE
 GROUP BY
     l.l_orderkey,
     o.o_orderdate,
-    o.o_shippriority;
+    o.o_shippriority
+OPTION (RECOMPILE);

@@ -1,9 +1,21 @@
 -- Disable others
-ALTER SECURITY POLICY query17_part_policy_rls WITH (STATE = OFF);
+-- ALTER SECURITY POLICY query17_part_policy_rls WITH (STATE = OFF);
+
+
+DBCC FREEPROCCACHE;
+DBCC DROPCLEANBUFFERS;
+GO
+
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
 
 
 -- Enable view
 ALTER SECURITY POLICY query17_part_policy_view WITH (STATE = ON);
+
+EXECUTE AS USER = 'user1';
+GO
 
 
 SELECT SUM(l.l_extendedprice) / 7.0 AS avg_yearly
@@ -16,6 +28,8 @@ WHERE
         SELECT 0.7 * AVG(l2.l_quantity)
         FROM dbo.lineitem l2
         WHERE l2.l_partkey = p.p_partkey
-    );
+    )
+OPTION (RECOMPILE);
+
 
 GO
