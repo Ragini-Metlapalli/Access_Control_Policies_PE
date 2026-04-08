@@ -5,7 +5,7 @@ DROP SECURITY POLICY IF EXISTS dbo.query18_orders_customer_policy_view;
 GO
 
 CREATE SECURITY POLICY order_rls_policy
-ADD FILTER PREDICATE dbo.fn_policy_wrapper(
+ADD FILTER PREDICATE dbo.fn_policy_wrapper_2(
     o_orderkey,
     o_custkey,
     o_orderstatus,

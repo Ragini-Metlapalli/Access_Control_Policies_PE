@@ -1,7 +1,7 @@
-DROP FUNCTION IF EXISTS dbo.fn_policy_wrapper;
+DROP FUNCTION IF EXISTS dbo.fn_policy_wrapper_2;
 GO
 
-CREATE FUNCTION dbo.fn_policy_wrapper
+CREATE FUNCTION dbo.fn_policy_wrapper_2
 (
     @o_orderkey INT,
     @o_custkey INT,
