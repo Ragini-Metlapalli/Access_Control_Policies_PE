@@ -1,7 +1,5 @@
 PRINT '===== Q21 + P19 + P40 EXPERIMENT =====';
 
--- Switch user
-
 DECLARE @limit BIGINT = 1000;
 DECLARE @start_time DATETIME2;
 DECLARE @end_time DATETIME2;
@@ -9,14 +7,12 @@ DECLARE @duration BIGINT;
 
 WHILE 1 = 1
 BEGIN
-    RAISERROR ()'----------------------------------------') WITH NOWAIT;
-    RAISERROR ('Running for size = %d', 0, 1, @limit) WITH NOWAIT;
-    -- Enable policy
+    PRINT '----------------------------------------';
+    PRINT 'Running for size = ' + CAST(@limit AS VARCHAR);
+
+    -- ADMIN SECTION
     ALTER SECURITY POLICY dbo.q21_p19_p40 WITH (STATE = ON);
 
-    EXECUTE AS USER = 'user1';
-
-    -- Clear cache
     DBCC FREEPROCCACHE;
     DBCC DROPCLEANBUFFERS;
 
@@ -26,6 +22,9 @@ BEGIN
     SET @start_time = SYSDATETIME();
 
     BEGIN TRY
+
+        -- SWITCH TO USER ONLY FOR QUERY
+        EXECUTE AS USER = 'user1';
 
         SELECT
             s.s_name,
@@ -40,7 +39,7 @@ BEGIN
             AND o.o_orderkey = l1.l_orderkey
             AND o.o_orderstatus = 'F'
             AND l1.l_receiptdate > l1.l_commitdate
-            AND l1.l_orderkey <= @limit  -- scaling knob
+            AND l1.l_orderkey <= @limit
 
             AND EXISTS (
                 SELECT 1
@@ -58,8 +57,10 @@ BEGIN
             AND s.s_nationkey = n.n_nationkey
             AND n.n_name = 'GERMANY'
         GROUP BY s.s_name
-        ORDER BY numwait DESC, s.s_name
         OPTION (RECOMPILE);
+
+        -- BACK TO ADMIN
+        REVERT;
 
         SET @end_time = SYSDATETIME();
         SET @duration = DATEDIFF(MILLISECOND, @start_time, @end_time);
@@ -71,6 +72,9 @@ BEGIN
 
     END TRY
     BEGIN CATCH
+
+        IF USER_NAME() = 'user1'
+            REVERT;
 
         SET @end_time = SYSDATETIME();
         SET @duration = DATEDIFF(MILLISECOND, @start_time, @end_time);
@@ -86,11 +90,6 @@ BEGIN
     SET STATISTICS TIME OFF;
     SET STATISTICS IO OFF;
 
-    -- exponential growth
     SET @limit = @limit * 2;
 END
-GO
-
--- revert user
-REVERT;
 GO
