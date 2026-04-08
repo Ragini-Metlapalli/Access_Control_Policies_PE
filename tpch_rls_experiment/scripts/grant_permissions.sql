@@ -2,9 +2,26 @@ USE TPCH;
 GO
 
 GRANT SELECT ON lineitem TO user1;
+GRANT SELECT ON orders TO user1;
+GRANT SELECT ON customer TO user1;
+GRANT SELECT ON supplier TO user1;
+GRANT SELECT ON part TO user1;
+
 GRANT SELECT ON lineitem TO user2;
+GRANT SELECT ON orders TO user2;
+GRANT SELECT ON customer TO user2;
+GRANT SELECT ON supplier TO user2;
+GRANT SELECT ON part TO user2;
+
 GRANT SELECT ON lineitem TO user3;
+GRANT SELECT ON orders TO user3;
+GRANT SELECT ON customer TO user3;
+GRANT SELECT ON supplier TO user3;
+GRANT SELECT ON part TO user3;
+
 GRANT SELECT ON SCHEMA::dbo TO user1;
+GRANT SELECT ON SCHEMA::dbo TO user2;
+GRANT SELECT ON SCHEMA::dbo TO user3;
 
 GO
 
