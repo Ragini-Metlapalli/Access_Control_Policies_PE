@@ -1,7 +1,7 @@
 {
-  "runs_per_query": 3,
+  "runs_per_query": 5,
 
-  "modes": ["WITH_RLS"],
+  "modes": ["WITH_RLS", "WITHOUT_RLS"],
 
   "rls": {
     "enable": true,
